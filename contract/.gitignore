@@ -1,0 +1,3 @@
+node_modules/
+assembly/**/__tests__/*.map
+assembly/**/__tests__/*.wat

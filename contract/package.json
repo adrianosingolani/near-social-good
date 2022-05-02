@@ -1,0 +1,26 @@
+{
+  "scripts": {
+    "lint:fix": "asb fmt \"assembly/**/*.ts\"",
+    "lint": "asb fmt \"assembly/**/*.ts\" --lint",
+    "test": "asb test -- --verbose",
+    "test:ci": "asb test -- --summary",
+    "build:untouched": "asb assembly/index.ts --target debug",
+    "build:optimized": "asb assembly/index.ts --target release",
+    "build:u+o": "npm run build:untouched && npm run build:optimized",
+    "build": "asb assembly/index.ts",
+    "deploy": "npm run build && near deploy --accountId=social-good.adriano.testnet --wasmFile=build/release/contract.wasm --force"
+  },
+  "devDependencies": {
+    "@as-pect/cli": "^6.2.4",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "asbuild": "latest",
+    "assemblyscript": "^0.18.7",
+    "eslint": "^7.17.0",
+    "near-sdk-as": "^3.2.3",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.18.7"
+  }
+}
